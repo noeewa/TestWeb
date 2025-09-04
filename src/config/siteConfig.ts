@@ -13,8 +13,8 @@ export const siteConfig = {
     description: "Digital diver that missing consciousness in the flow of AI distruption",
     location: "Indonesia, East Java",
     email: "fawgrahpics@gmail.com",
-    profileImage: "/patung.jpg", // placeholder for now
-    bannerImage: "/BG.jpg", // placeholder banner
+    profileImage: "patung.jpg", // placeholder for now
+    bannerImage: "bg.jpg", // placeholder banner
   },
 
   // Scrolling Quotes
