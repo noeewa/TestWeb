@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brutalist Design System - Bold, Simple, Functional */
+
+@layer base {
+  :root {
+    /* Brutalist Colors - High Contrast */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --banner-bg: 0 0% 0%;
+    --banner-text: 0 0% 100%;
+    
+    /* Accent Colors */
+    --accent-cyan: 180 100% 50%;
+    --accent-pink: 300 100% 70%;
+    --accent-yellow: 60 100% 50%;
+    
+    /* UI Elements */
+    --border-brutal: 0 0% 0%;
+    --border-width: 3px;
+    --shadow-brutal: 4px 4px 0px;
+    
+    /* Typography */
+    --font-brutal: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-brutal);
+    line-height: 1.4;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Brutalist Button */
+  .btn-brutal {
+    @apply bg-background text-foreground px-6 py-3 text-sm font-bold uppercase tracking-wide;
+    border: 2px solid hsl(var(--border-brutal));
+    box-shadow: 2px 2px 0px hsl(var(--border-brutal));
+    transition: transform 0.1s ease;
+  }
+  
+  .btn-brutal:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px hsl(var(--border-brutal));
+  }
+  
+  .btn-brutal:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  /* Brutalist Card */
+  .card-brutal {
+    @apply bg-background;
+    border: 1px solid hsl(var(--border-brutal));
+    box-shadow: 3px 3px 0px hsl(var(--border-brutal));
+  }
+
+  /* Banner Scaling Animation */
+  .banner-scale {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+  }
+  
+  .banner-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .banner-scale:active {
+    transform: scale(0.98);
+  }
+
+  /* Scrolling Text Animation */
+  .scroll-text {
+    animation: scroll-horizontal 20s linear infinite;
+  }
+
+  @keyframes scroll-horizontal {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Layout Loading */
+  .layout-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: hsl(var(--banner-bg));
+    color: hsl(var(--banner-text));
+    padding: 8px 0;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    border-bottom: var(--border-width) solid hsl(var(--border-brutal));
+  }
+
+  /* Slide Container */
+  .workflow-slider {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
