@@ -5,12 +5,15 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Mindscape from "./pages/Mindscape";
+import MindscapeWithSidebar from "./components/MindscapeWithSidebar";
+import MindscapeTechnical from "./pages/MindscapeTechnical";
+import MindscapeCreative from "./pages/MindscapeCreative";
 import Gallery from "./pages/Gallery";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import { useState, useEffect } from "react";
 import { Loader2 } from "lucide-react";
+import Mindscape from "./pages/Mindscape";
 
 const queryClient = new QueryClient();
 
@@ -63,7 +66,11 @@ const App: React.FC<{}> = ({}) => {
           <Layout>
           <Routes>
               <Route path="/" element={isLoading? (<Loader/> ) : (<Home posisi={posisi} setPosisi={setPosisi} />)} />
-              <Route path="/mindscape" element={<Mindscape />} />
+              <Route path="/mindscape" element={<MindscapeWithSidebar />} > {/* Tambahan */}
+                <Route path="" element={<Mindscape />} /> {/* Tambahan */}
+                <Route path="technical" element={<MindscapeTechnical />} /> {/* Tambahan */}
+                <Route path="creative" element={<MindscapeCreative />} /> {/* Tambahan */}
+              </Route>
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="*" element={<NotFound />} />
