@@ -5,42 +5,48 @@ import { ArrowLeft, Code } from 'lucide-react';
 const MindscapeTechnical: React.FC = () => {
   const sections = [
     {
-      title: "React & Modern Frontend",
-      content: `Exploring the evolution of frontend development with React and its ecosystem. The component-based architecture has revolutionized how we think about user interfaces.
-
-TypeScript integration brings type safety that scales beautifully with team size and project complexity. The development experience becomes significantly more predictable and maintainable.
-
-Key insights from my journey:
-- Component composition over inheritance
-- State management patterns that scale
-- Performance optimization strategies
-- Testing approaches that provide confidence`
+      title: "What Happen To ME?",
+      content: `Aku bukan orang yang bisa mendalami suatu perasaan orang lain ataupun sikap yang expresif. Entah kenapa itu menjadi suatu takaran bagiku untuk mengukur seberapa bodohnya diriku dalam hal sosial. Kadang aku mengganngap mendalami suatu perasann melankolis, dramatisasi dan lainya menjadi hal yang konyol karena
+      semacam ada persaan bahwa aku tidak layak untuk mendalami persaan diri karena aku ini bodoh secara sosial? Jadi aku menolah beberapa persaan seperti itu. Akhir akhir ini aku sering merasakan suatu keganjalan dalam pikiran. bukan suatu yang meresahkan atau mengkhawatirkan, tapi lebih persaan mendalam karena suatu hal yang tak terelakan.`
     },
     {
-      title: "System Design Philosophy",
-      content: `Building systems that are both robust and flexible requires careful architectural decisions. Every choice we make today impacts tomorrow's possibilities.
-
-Clean architecture principles help create boundaries that protect against change. When requirements evolve, well-designed systems adapt gracefully rather than breaking.
-
-Core principles I follow:
-- Separation of concerns
-- Dependency inversion
-- Single responsibility
-- Open for extension, closed for modification`
+      title: "Sebelumnya",
+      content: `Salah satu hal yang paling sering kupikirkan adalah bagaimana kedepannya. Diposisiku sekarang, aku seorang mahasiswa sistem informasi, dimana lebih banyak beljar tentang hal terkait menajemen bisinis dibanding tentang hal teknis dalam pemrogramman. setelah menjalani beberapa minggu, aku menakar - nakar bagaimana aku kedepannya, skillku, dan apa yang ingin kucapai.
+      Tidak semuannya terjawab dan hanya menjadi pertanyaan sampai sekarang`
     },
     {
-      title: "Development Workflow",
-      content: `Efficient development workflows emerge from understanding both tools and team dynamics. The goal is to minimize friction while maximizing quality and velocity.
-
-Automation serves as a force multiplier, but only when it solves real problems. Over-engineering early can create more overhead than benefit.
-
-Workflow elements that matter:
-- Version control strategies
-- Code review practices
-- Testing automation
-- Deployment pipelines
-- Documentation culture`
-    }
+      title: "Perbedaan",
+      content: `Membandingkan kesana kemari, Aku diberi dua pilihan sulit. Menjadi seorang yang lebih teknis dan mendalami banyak bahasa pemrogramman lalu bekerja menjadi seorang programmer, atau menjadi seorang bisnis menajer, memimpim perusahaan, dan memanajemen berbagai hal. Aku memilih tidak menjawabnya sekarang karena aku tidak mau dibatasi oleh dua expetasi itu sendiri. karena itu aku akan lebih spesifik dalam menjelaskan hal yang kuinginkan. 
+      Aku tidak mau menjadi orang yang terlalu sibuk didalam bisnis, ataupun orang yang terlalu lemah untuk bisa menguasai sebuah gagasan, dan cita-cita yang ingin dicapai, apalgi berkaitan dengan suatu hal yang besar. Maka dari itu aku tetap butuh skill agar aku bisa membuat sesuatu, dan menjadi bagian dari sesuatu, tapi selain itu aku juga butuh hal yang bisa membuat gagasan ku terealisasikan terutama hal yang melibatkan banyak orang. Antara lain targetku adalah sebagai berikut:`
+    },
+    {
+      title: "Manajement Skills",
+      content: `Skill untuk memimpin dan memimpin tim adalah yang palin menjadi masalah utama, karena tidak ada hal menjadi aturan jelas bagaimana kita harus mimpin yang menurutku cuman bisa didapatkan dari pengalaman`
+    },
+    {
+      title: "Web Development",
+      content: `Aku mengganggap Frontend adalah tempat pertama orang berinteraksi, entah itu dengan aplikasi, web atau yang lainya dimana impresi pertama seseorang terbentuk.`
+    },
+    {
+      title: "Sains Data",
+      content: `Data menjadi suatu hal yang pasti ada, bagaimana mengelola sebuah informasi, apalagi informasi yang sangat besar menjadi sebuah kesimpulan`
+    },
+    {
+      title: "Aritificial Intelligence",
+      content: `AI menorobos banyak hal. membuat ia menjadi alat bantu dalam banyak hal`
+    },
+    {
+      title: "Computer Vision",
+      content: `Jika Frontend adalah tempat muka pertama seseorang berinteraksi dengan sistem, maka computer vision menjadi muka pertama interaksi komputer dengan lingkungan`
+    },
+    {
+      title: "Geometry",
+      content: `Ini adalah spesifikasi yang setidaknya ingin kupelajari`
+    },
+    {
+      title: "Simulation",
+      content: `Dimana simulasi yang kumaksud lebih kearah simulasi matematis.`
+    },
   ];
 
   return (
@@ -56,11 +62,11 @@ Workflow elements that matter:
           </div>
           
           <h1 className="text-6xl md:text-8xl font-black mb-6" style={{ letterSpacing: '0.02em' }}>
-            Technical
+            19 September 2025
           </h1>
           
           <p className="text-xl text-gray-300 max-w-2xl" style={{ wordSpacing: '0.1em', lineHeight: '1.8' }}>
-            Deep dives into development practices, architecture decisions, and technical philosophy
+            Well, Sedikit berpikir lagi setelah sekian lama. Sesi ini adalah momen setelah berakhirnya masa PPMB selesai.
           </p>
         </div>
       </header>
@@ -77,7 +83,7 @@ Workflow elements that matter:
                 </h2>
               </div>
               
-              <div className="bg-black border-[0.1px] border-white/30 p-6">
+              <div className="bg-black border-[0.0px] border-white/30 p-6">
                 <div 
                   className="text-lg leading-relaxed whitespace-pre-line"
                   style={{ 

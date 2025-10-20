@@ -15,7 +15,7 @@ const TimelineSlider: React.FC = () => {
   };
 
   return (
-    <section className="bg-background py-16 border-t-4 border-black">
+    <section className="bg-background py-64 border-t-4 border-black">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-black mb-4">{timeline.title}</h2>
@@ -44,10 +44,10 @@ const TimelineSlider: React.FC = () => {
           {/* Content */}
           <div className="text-center min-h-[200px] flex flex-col justify-center">
             <div className="border-2 border-black p-8 bg-white">
-              <h3 className="text-2xl font-black mb-2">
+              <h3 className="text-6xl font-black mb-4">
                 {timeline.items[currentIndex].year}
               </h3>
-              <h4 className="text-xl font-bold mb-4">
+              <h4 className="text-2xl font-medium mb-4">
                 {timeline.items[currentIndex].title}
               </h4>
               <p className="text-lg">

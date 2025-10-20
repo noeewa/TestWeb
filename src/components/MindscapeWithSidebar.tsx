@@ -11,13 +11,7 @@ const MindscapeWithSidebar: React.FC = () => {
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
-  
-  React.useLayoutEffect(() => {
-    alert("⚠️ Masih dalam Template");
-    return () => {
-      console.log("🧹 Cleanup saat komponen unmount");
-    };
-  }, []);
+
 
   return (
     <div className="relative">

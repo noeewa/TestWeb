@@ -232,8 +232,8 @@ export const siteConfig = {
   // About Me
   about: {
     title: "About Me",
-    description: "Atensi terhadap Seni, Teknologi, dan Matematika.",
-    details: "Digital diver that missing consciousness in the flow of AI distruption",
+    description: "Kesadaran dibawah keinginan. And intended to be everything",
+    details: "A digital diver that lost in the flow of AI disruption.",
     currentWork: "Currently based in Indonesia, work with Laptop and Internet",
     skills: {
       frontend: {
@@ -244,7 +244,7 @@ export const siteConfig = {
       },
       backend: {
         title: "Backend Development", 
-        skills: ["Firebase Beginner",]
+        skills: ["Beginner",]
       }
     }
   },
@@ -252,19 +252,23 @@ export const siteConfig = {
   // Workflow
   workflow: {
     title: "Work Flow",
-    subtitle: "What can I do?",
+    subtitle: "The Simple Process To Be Yours?",
     items: [
       {
-        title: "Handle Website Building wiht AI Generator",
-        description: "I have an experienced in building and making using Javascript and some litte Typescript. I can handle code and dealing with stuff code that AI generated."
+        title: "Proposal",
+        description: "Everything is will be prepared and planned. Project Requierment."
       },
       {
-        title: "This, intended to be blank", 
-        description: "Maybe I will fill it with something useful later"
+        title: "Building", 
+        description: "Connecting people to create powerful things."
       },
       {
-        title: "Art & Graphics",
-        description: "Digital art creation, and visual design work."
+        title: "Detailing",
+        description: "The detail would be done."
+      },
+      {
+        title: "Done",
+        description: "Where every effort meets perfection."
       }
     ]
   },
@@ -275,30 +279,30 @@ export const siteConfig = {
     subtitle: "My professional journey",
     items: [
       {
-        year: "2022",
-        title: "Started Learning",
-        description: "Coming Soon"
+        year: "July - September 2025",
+        title: "Started Learning Code",
+        description: "HTML, JavaScript, ReactJS, Tailwind CSS, Vite, Figma and more"
       },
       {
-        year: "2025", 
+        year: "September 2025", 
         title: "First Projects",
-        description: "Coming Soon"
+        description: "Technoday UI/UX Competition"
       },
       {
-        year: "2025",
+        year: "October 2025",
         title: "Expanding Skills",
-        description: "Coming Soon"
+        description: "Backend Development, Forntend Animation"
       },
       {
-        year: "2025",
-        title: "Professional Growth",
-        description: "Coming Soon"
+        year: "December 2025",
+        title: "First Lead Mega Project",
+        description: "Gather all of my friends to build a X"
       },
       {
-        year: "2025",
-        title: "Current Focus",
-        description: "Coming Soon"
-      }
+        year: "-",
+        title: "Coming Soon",
+        description: "-"
+      },
     ]
   },
 

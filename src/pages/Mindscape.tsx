@@ -46,8 +46,8 @@ const Mindscape: React.FC = () => {
               {/* Content */}
               <div className="flex-1">
                 <h2 className="text-3xl font-black mb-6">{section.title}</h2>
-                <div className="rounded-[4px] border-solid border-[0.5px] border-white/30  overflow-hidden p-6">
-                  <p className="text-lg leading-relaxed whitespace-pre-line">
+                <div className="rounded-[4px] border-solid border-[0.0px] border-white/30  overflow-hidden p-6">
+                  <p className="text-[16px] leading-relaxed whitespace-pre-line">
                     {section.content.map((item, index) => (
                       <span className='mb-4 block tracking-normal leading-normal' key={index}>{item}<br /></span>
                     ))}

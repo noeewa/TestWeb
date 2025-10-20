@@ -21,7 +21,7 @@ const WorkflowSlider: React.FC = () => {
         <p className="text-center mb-8 text-lg">{workflow.subtitle}</p>
         
         <div className="relative">
-          <div className="card-brutal p-8 min-h-[300px] flex flex-col justify-center">
+          <div className="card-brutal p-8 min-h-[120px] flex flex-col justify-center">
             <h3 className="text-2xl font-black mb-4">{workflow.items[currentIndex].title}</h3>
             <p className="text-lg leading-relaxed">{workflow.items[currentIndex].description}</p>
           </div>

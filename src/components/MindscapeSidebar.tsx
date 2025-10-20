@@ -15,8 +15,7 @@ const MindscapeSidebar: React.FC<MindscapeSidebarProps> = ({ isOpen, onToggle })
 
   const mindscapePages = [
     { name: 'Main Mindscape', href: '' },
-    { name: 'Technical Topics', href: 'technical' },
-    { name: 'Creative Thoughts', href: 'creative' },
+    { name: '19 September 2025', href: 'pre-fase' },
   ];
 
   return (

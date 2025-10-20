@@ -68,8 +68,7 @@ const App: React.FC<{}> = ({}) => {
               <Route path="/" element={isLoading? (<Loader/> ) : (<Home posisi={posisi} setPosisi={setPosisi} />)} />
               <Route path="/mindscape" element={<MindscapeWithSidebar />} > {/* Tambahan */}
                 <Route path="" element={<Mindscape />} /> {/* Tambahan */}
-                <Route path="technical" element={<MindscapeTechnical />} /> {/* Tambahan */}
-                <Route path="creative" element={<MindscapeCreative />} /> {/* Tambahan */}
+                <Route path="pre-fase" element={<MindscapeTechnical />} /> {/* Tambahan */}
               </Route>
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/profile" element={<Profile />} />
