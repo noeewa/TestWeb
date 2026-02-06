@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
+import { siteConfig } from '@server/storage/siteConfig';
 
 const TimelineSlider: React.FC = () => {
   const { timeline } = siteConfig;
@@ -18,8 +18,8 @@ const TimelineSlider: React.FC = () => {
     <section className="bg-background py-64 border-t-4 border-black">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-black mb-4">{timeline.title}</h2>
-          <p className="text-lg">{timeline.subtitle}</p>
+          <h2 className="font-black mb-4">{timeline.title}</h2>
+          <p>{timeline.subtitle}</p>
         </div>
 
         <div className="relative">
@@ -44,13 +44,13 @@ const TimelineSlider: React.FC = () => {
           {/* Content */}
           <div className="text-center min-h-[200px] flex flex-col justify-center">
             <div className="border-2 border-black p-8 bg-white">
-              <h3 className="text-6xl font-black mb-4">
+              <h3 className="font-black mb-4">
                 {timeline.items[currentIndex].year}
               </h3>
-              <h4 className="text-2xl font-medium mb-4">
+              <h4 className="font-medium mb-4">
                 {timeline.items[currentIndex].title}
               </h4>
-              <p className="text-lg">
+              <p>
                 {timeline.items[currentIndex].description}
               </p>
             </div>

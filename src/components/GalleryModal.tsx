@@ -120,7 +120,7 @@ const GalleryModal: React.FC<GalleryModalProps> = ({
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b border-border">
           <div>
-            <h2 className="text-2xl font-black">{project.title}</h2>
+            <h2 className="font-black">{project.title}</h2>
             <p className="text-sm text-muted-foreground">{project.category}</p>
           </div>
           <button

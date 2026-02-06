@@ -8,7 +8,7 @@ export const siteConfig = {
   // Profile
   profile: {
     name: "Altha.cra",
-    role: "WEB & MATH",
+    role: "All Role",
     tagline: "Code Artist",
     description: "Digital diver that missing consciousness in the flow of AI distruption",
     location: "Indonesia, East Java",
@@ -83,7 +83,7 @@ export const siteConfig = {
       
       {
         id: 1,
-        title: "UI/UX",
+        title: "TEMPLATE KOSONG",
         alt: "Gambarnya blm di pasang",
         category: "UI/UX", 
         type: "triple",
@@ -116,115 +116,6 @@ export const siteConfig = {
             link: undefined,
           }
         ]
-      },
-      {
-        id: 2,
-        title: "Logo Design",
-        alt: "Gambarnya blm di pasang",
-        category: "UI/UX",
-        type: "triple",
-        link: "https://www.behance.net/gallery/229689595/My-Portofolio",
-        items: [
-          { 
-            id: "5a", 
-            title: "El.Rey",
-            alt: "Gambarnya blm di pasang",
-            placeholder: "/Image/PF2.png",
-            description: "Modern logo design with brand guidelines",
-            link: undefined,
-          },
-          { 
-            id: "5b", 
-            title: "Head Logo",
-            alt: "Gambarnya blm di pasang", 
-            placeholder: "/Image/PF11.png",
-            description: "Color palette and brand identity system",
-            link: undefined,
-          },
-          { 
-            id: "5c", 
-            title: "Box Logo",
-            alt: "Gambarnya blm di pasang", 
-            placeholder: "/Image/PF14.jpg",
-            description: "Typography system and font selection",
-            link: undefined,
-          }
-        ]
-      },
-      {
-        id: 3,
-        title: "Portfolio Website",
-        alt: "My Previous Project with AI",
-        category: "Web Design",
-        type: "single",
-        placeholder: "Web.jpg",
-        description: "My Previous Project with AI Generated",
-        link: "https://drive.google.com/file/d/1-2ZHGdpWQlKOxTmmnWhQCcEc9kcRpzPF/view?usp=sharing",
-      },
-      {
-        id: 4,
-        alt: "Gambarnya blm di pasang",
-        title: "Art",
-        category: "Art",
-        type: "single",
-        placeholder: "/api/placeholder/800/600",
-        description: "A sleek and modern web application with responsive design",
-        link: "https://www.instagram.com/altha.cra/",
-      },
-      {
-        id: 5,
-        title: "Graphic Art",
-        alt: "Gambarnya blm di pasang", 
-        category: "Art",
-        type: "single",
-        placeholder: "/api/placeholder/400/600",
-        description: "Gratefull poster",
-        link: undefined,
-      },
-      {
-        id: 6,
-        title: "E-commerce Platform",
-        alt: "Gambarnya blm di pasang",
-        category: "Web Design",
-        type: "single",
-        placeholder: "/api/placeholder/800/600",
-        description: "Complete e-commerce solution with modern design",
-        link: undefined,
-      },
-      {
-        id: 7,
-        title: "Web System",
-        alt: "Gambarnya blm di pasang",
-        category: "Algorithm", 
-        type: "double",
-        items: [
-          { 
-            id: "6a",
-            alt: "Gambarnya blm di pasang",
-            title: "iOS Version", 
-            placeholder: "/api/placeholder/300/600",
-            description: "iOS application design with native elements",
-            link: undefined,
-          },
-          { 
-            id: "6b",
-            alt: "Gambarnya blm di pasang", 
-            title: "Android Version", 
-            placeholder: "/api/placeholder/300/600",
-            description: "Android application with material design",
-            link: undefined,
-          }
-        ]
-      },
-      {
-        id: 8,
-        title: "Social Media App",
-        alt: "Gambarnya blm di pasang",
-        category: "UI/UX",
-        type: "single",
-        placeholder: "/api/placeholder/400/600",
-        description: "Social media application with engaging user experience",
-        link: undefined,
       }
     ]
   },

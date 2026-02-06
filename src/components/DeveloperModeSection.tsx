@@ -13,11 +13,11 @@ const DeveloperModeSection: React.FC = () => {
           </span>
         </div>
         
-        <h2 className="text-4xl md:text-6xl font-black mb-6 text-white">
+        <h2 className="font-black mb-6 text-white">
           Technical Topics
         </h2>
         
-        <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+        <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
           Dive deeper into technical concepts, code insights, and development experiences
         </p>
         

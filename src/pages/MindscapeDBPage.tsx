@@ -1,14 +1,85 @@
-import React, { useLayoutEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import { siteConfig } from '@server/storage/siteConfig';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { ArrowLeft, Loader2 } from 'lucide-react';
 
-const Mindscape: React.FC = () => {
-  const { mindscape } = siteConfig;
+interface Section {
+  title: string;
+  content: string[];
+}
+
+interface MindscapePage {
+  id: number;
+  headline: string;
+  subtitle: string;
+  sections: Section[];
+}
+
+const MindscapeDBPage: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const [page, setPage] = useState<MindscapePage | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
+  useEffect(() => {
+    const fetchPage = async () => {
+      try {
+        setLoading(true);
+        const pageId = parseInt(id || '1');
+        
+        const res = await fetch(`http://localhost:3000/api/pages/${pageId}`, {
+          credentials: 'include'
+        });
+        
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success && data.page) {
+            setPage(data.page);
+          } else {
+            setError('Page not found');
+          }
+        } else {
+          setError('Failed to fetch page');
+        }
+      } catch (err) {
+        console.error('Failed to fetch page:', err);
+        setError('Connection error');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (id) {
+      fetchPage();
+    }
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-black text-gray-100 -mt-24 flex items-center justify-center">
+        <Loader2 className="animate-spin" size={40} />
+      </div>
+    );
+  }
+
+  if (error || !page) {
+    return (
+      <div className="min-h-screen bg-black text-gray-100 -mt-24 flex flex-col items-center justify-center">
+        <h1 className="text-2xl font-black mb-4">Page Not Found</h1>
+        <p className="text-gray-300 mb-8">{error}</p>
+        <Link 
+          to="/mindscape"
+          className="inline-flex items-center gap-2 bg-gray-100 text-black px-6 py-3 font-bold hover:bg-gray-200 transition-colors"
+        >
+          <ArrowLeft size={20} />
+          Back to Navigator
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black text-gray-100 -mt-24">
@@ -17,16 +88,16 @@ const Mindscape: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-2 mb-8">
             <span className="bg-cyan-400 text-black px-3 py-1 text-sm font-bold">
-              Personal Journey & Thoughts
+              Database Page
             </span>
           </div>
           
           <h1 className="font-black mb-6">
-            {mindscape.title}
+            {page.headline}
           </h1>
           
           <p className="text-gray-300 max-w-2xl">
-            {mindscape.subtitle}
+            {page.subtitle}
           </p>
         </div>
       </header>
@@ -34,12 +105,12 @@ const Mindscape: React.FC = () => {
       {/* Content Sections */}
       <main className="px-6 pb-16">
         <div className="max-w-4xl mx-auto space-y-16">
-          {mindscape.sections.map((section, index) => (
+          {page.sections.map((section, index) => (
             <section key={index} className="flex gap-8">
               {/* Timeline dot */}
               <div className="flex flex-col items-center">
                 <div className="w-3 h-3 bg-gray-200 rounded-full"></div>
-                {index < mindscape.sections.length - 1 && (
+                {index < page.sections.length - 1 && (
                   <div className="w-[0.3px] h-full bg-gray-200/30 mt-2"></div>
                 )}
               </div>
@@ -75,14 +146,14 @@ const Mindscape: React.FC = () => {
         </Link>
       </section>
 
-      {/* Footer Quote */}
+      {/* Footer */}
       <footer className="py-8 text-center border-t border-gray-800">
         <p className="text-sm italic text-gray-400">
-          {siteConfig.footer.note}
+          Dynamic Content from Database
         </p>
       </footer>
     </div>
   );
 };
 
-export default Mindscape;
+export default MindscapeDBPage;

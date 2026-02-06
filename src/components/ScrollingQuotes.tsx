@@ -1,5 +1,5 @@
 import React from 'react';
-import { siteConfig } from '../config/siteConfig';
+import { siteConfig } from '@server/storage/siteConfig';
 
 const ScrollingQuotes: React.FC = () => {
   const allQuotes = siteConfig.quotes.join(' ');

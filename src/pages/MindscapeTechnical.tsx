@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Code } from 'lucide-react';
+import { useLayoutEffect } from 'react';
 
 const MindscapeTechnical: React.FC = () => {
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   const sections = [
     {
       title: "What Happen To ME?",
@@ -50,7 +54,7 @@ const MindscapeTechnical: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-gray-100 -mt-24">
       {/* Header */}
       <header className="py-8 px-6">
         <div className="max-w-4xl mx-auto">
@@ -61,11 +65,11 @@ const MindscapeTechnical: React.FC = () => {
             </span>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-black mb-6" style={{ letterSpacing: '0.02em' }}>
+          <h1 className="font-black mb-6">
             19 September 2025
           </h1>
           
-          <p className="text-xl text-gray-300 max-w-2xl" style={{ wordSpacing: '0.1em', lineHeight: '1.8' }}>
+          <p className="text-gray-300 max-w-2xl">
             Well, Sedikit berpikir lagi setelah sekian lama. Sesi ini adalah momen setelah berakhirnya masa PPMB selesai.
           </p>
         </div>
@@ -77,20 +81,15 @@ const MindscapeTechnical: React.FC = () => {
           {sections.map((section, index) => (
             <section key={index} className="space-y-6">
               <div className="flex items-center gap-3">
-                <div className="w-[0.2px] h-8 bg-white/30 "></div>
-                <h2 className="text-3xl font-black" style={{ letterSpacing: '0.01em' }}>
+                <div className="w-[0.2px] h-8 bg-gray-200/30 "></div>
+                <h2 className="font-black">
                   {section.title}
                 </h2>
               </div>
               
-              <div className="bg-black border-[0.0px] border-white/30 p-6">
+              <div className="bg-black border-[0.0px] border-gray-200/30 p-6">
                 <div 
-                  className="text-lg leading-relaxed whitespace-pre-line"
-                  style={{ 
-                    wordSpacing: '0.05em', 
-                    letterSpacing: '0.02em',
-                    lineHeight: '1.9'
-                  }}
+                  className="whitespace-pre-line leading-relaxed"
                 >
                   {section.content}
                 </div>
@@ -100,18 +99,18 @@ const MindscapeTechnical: React.FC = () => {
         </div>
       </main>
 
-      {/* Back to Mindscape */}
+      {/* Back to Navigator */}
       <section className="py-16 text-center border-t border-gray-800">
-        <h2 className="text-3xl font-black mb-4">Back to Mindscape</h2>
-        <p className="text-lg text-gray-300 mb-8">
-          Return to the main mindscape for personal reflections
+        <h2 className="font-black mb-4">Back to Navigator</h2>
+        <p className="text-gray-300 mb-8">
+          Return to the mindscape navigator to explore other sections
         </p>
         <Link 
           to="/mindscape"
-          className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 font-bold hover:bg-gray-200 transition-colors"
+          className="inline-flex items-center gap-2 bg-gray-100 text-black px-6 py-3 font-bold hover:bg-gray-200 transition-colors"
         >
           <ArrowLeft size={20} />
-          Back to Mindscape
+          Back to Navigator
         </Link>
       </section>
 

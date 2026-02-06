@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Instagram, Github, Mail } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
+import { siteConfig } from '@server/storage/siteConfig';
 
 const Profile: React.FC = () => {
   const { profile, about } = siteConfig;

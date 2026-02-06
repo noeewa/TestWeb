@@ -66,11 +66,11 @@ My learning approach:
             </span>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-black mb-6" style={{ letterSpacing: '0.02em' }}>
+          <h1 className="font-black mb-6">
             Developer Mode
           </h1>
           
-          <p className="text-xl text-gray-300 max-w-2xl" style={{ wordSpacing: '0.1em', lineHeight: '1.8' }}>
+          <p className="text-gray-300 max-w-2xl">
             Technical perspectives, development insights, and code philosophy
           </p>
         </div>
@@ -84,7 +84,7 @@ My learning approach:
               {/* Topic Header */}
               <div className="flex items-center gap-3">
                 <Code className="text-cyan-400" size={24} />
-                <h2 className="text-3xl font-black" style={{ letterSpacing: '0.01em' }}>
+                <h2 className="font-black">
                   {topic.title}
                 </h2>
               </div>
@@ -92,12 +92,7 @@ My learning approach:
               {/* Content */}
               <div className="bg-gray-900 border-l-4 border-cyan-400 p-6">
                 <div 
-                  className="text-lg leading-relaxed whitespace-pre-line space-y-6"
-                  style={{ 
-                    wordSpacing: '0.05em', 
-                    letterSpacing: '0.02em',
-                    lineHeight: '1.9'
-                  }}
+                  className="whitespace-pre-line space-y-6"
                 >
                   {topic.content}
                 </div>
@@ -109,8 +104,8 @@ My learning approach:
 
       {/* Back to Mindscape */}
       <section className="py-16 text-center border-t border-gray-800">
-        <h2 className="text-3xl font-black mb-4">Back to Thoughts</h2>
-        <p className="text-lg text-gray-300 mb-8">
+        <h2 className="font-black mb-4">Back to Thoughts</h2>
+        <p className="text-gray-300 mb-8">
           Return to the mindscape for personal reflections and journey
         </p>
         <Link 

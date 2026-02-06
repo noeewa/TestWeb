@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
+import { siteConfig } from '@server/storage/siteConfig';
 
 const WorkflowSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -17,13 +17,13 @@ const WorkflowSlider: React.FC = () => {
   return (
     <section className="py-12 bg-background">
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-4xl font-black text-center mb-2">{workflow.title}</h2>
-        <p className="text-center mb-8 text-lg">{workflow.subtitle}</p>
+        <h2 className="font-black text-center mb-2">{workflow.title}</h2>
+        <p className="text-center mb-8">{workflow.subtitle}</p>
         
         <div className="relative">
           <div className="card-brutal p-8 min-h-[120px] flex flex-col justify-center">
-            <h3 className="text-2xl font-black mb-4">{workflow.items[currentIndex].title}</h3>
-            <p className="text-lg leading-relaxed">{workflow.items[currentIndex].description}</p>
+            <h3 className="font-black mb-4">{workflow.items[currentIndex].title}</h3>
+            <p>{workflow.items[currentIndex].description}</p>
           </div>
           
           <div className="flex justify-between mt-6">

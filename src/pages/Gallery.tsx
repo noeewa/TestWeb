@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, Settings } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
+import { siteConfig } from '@server/storage/siteConfig';
 import GalleryModal from '../components/GalleryModal';
 import DeveloperModeModal from '../components/DeveloperModeModal';
 
@@ -119,7 +119,7 @@ const Gallery: React.FC = () => {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`btn-brutal text-sm ${
+                className={`px-2 py-1 text-sm border-2 border-black font-bold ${
                   activeCategory === category 
                     ? 'bg-black text-white' 
                     : 'bg-background text-black'
@@ -130,66 +130,15 @@ const Gallery: React.FC = () => {
             ))}
           </div>
 
-          <h1 className="text-4xl font-black mb-4">{gallery.title}</h1>
-          <p className="text-lg">{gallery.subtitle}</p>
+          <h1 className="font-black mb-4">{gallery.title}</h1>
+          <p>{gallery.subtitle}</p>
         </div>
       </header>
 
-      {/* Gallery Grid */}
+      {/* Gallery Content - Empty for now */}
       <main className="px-4 lg:px-6 py-8 lg:py-12">
         <div className="max-w-7xl mx-auto">
-          {/* Projects Grid */}
-          <div className="space-y-8 lg:space-y-12">
-            {filteredProjects.map((project, index) => {
-              // Create responsive layout pattern
-              if (index === 0) {
-                // First project - large featured
-                return (
-                  <div key={project.id} className="space-y-4">
-                    <h3 className="text-lg lg:text-xl font-black">{project.title}</h3>
-                    {renderProject(project, 'large')}
-                  </div>
-                );
-              }
-              
-              if (project.type === 'triple') {
-                return (
-                  <div key={project.id} className="space-y-4">
-                    <h3 className="text-lg lg:text-xl font-black">{project.title}</h3>
-                    {renderProject(project, 'small')}
-                  </div>
-                );
-              }
-              
-              if (project.type === 'double') {
-                return (
-                  <div key={project.id} className="space-y-4">
-                    <h3 className="text-lg lg:text-xl font-black">{project.title}</h3>
-                    {renderProject(project, 'medium')}
-                  </div>
-                );
-              }
-              
-              // Single projects in a responsive grid
-              return (
-                <div key={project.id} className="space-y-4">
-                  <h3 className="text-lg lg:text-xl font-black">{project.title}</h3>
-                  {renderProject(project, 'large')}
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Exit Button */}
-          <div className="text-center pt-8">
-            <button 
-              onClick={() => navigate('/')}
-              className="bg-black text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 mx-auto hover:bg-gray-800 transition-colors"
-            >
-              <X size={16} />
-              EXIT
-            </button>
-          </div>
+          {/* Content area - empty */}
         </div>
       </main>
 
