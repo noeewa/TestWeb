@@ -25,15 +25,22 @@ const MindscapeDBPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    // Use Vercel domain for production, localhost for development
+    const API_URL = import.meta.env.PROD 
+      ? 'https://althabase.vercel.app' 
+      : 'http://localhost:3000';
+    
+    console.log('[MindscapeDBPage] Environment:', import.meta.env.PROD ? 'Production' : 'Development');
+    
     const fetchPage = async () => {
       console.log('[MindscapeDBPage] Fetching page ID:', id);
-      console.log('[MindscapeDBPage] API URL: http://localhost:3000/api/pages/' + (parseInt(id || '1')));
+      console.log('[MindscapeDBPage] API URL:', API_URL + '/api/pages/' + (parseInt(id || '1')));
       
       try {
         setLoading(true);
         const pageId = parseInt(id || '1');
         
-        const res = await fetch(`http://localhost:3000/api/pages/${pageId}`, {
+        const res = await fetch(`${API_URL}/api/pages/${pageId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

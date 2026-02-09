@@ -28,11 +28,15 @@ const Home: React.FC<{
 
   // Fetch pages from Neon DB
   useEffect(() => {
+    // Use Vercel domain for production, localhost for development
+    const API_URL = import.meta.env.PROD 
+      ? 'https://althabase.vercel.app' 
+      : 'http://localhost:3000';
+    
+    console.log('[Home] Environment:', import.meta.env.PROD ? 'Production' : 'Development');
+    console.log('[Home] API URL:', API_URL + '/api/pages');
+    
     const fetchPages = async () => {
-      const API_URL = 'http://localhost:3000';
-      console.log('[Home] Starting fetch from Neon DB...');
-      console.log('[Home] API URL:', API_URL + '/api/pages');
-      
       try {
         setDbLoading(true);
         console.log('[Home] Sending request to server...');
