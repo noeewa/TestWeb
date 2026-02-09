@@ -4,8 +4,15 @@ import { siteConfig } from '@server/storage/siteConfig';
 import ScrollingQuotes from '../components/ScrollingQuotes';
 import WorkflowSlider from '../components/WorkflowSlider';
 import TimelineSlider from '../components/TimelineSlider';
-import { ArrowLeft, Instagram, Github, Mail, Linkedin, MapPin } from 'lucide-react';
+import { ArrowLeft, Instagram, Github, Mail, Linkedin, MapPin, Loader2 } from 'lucide-react';
 import { Loader } from '@/components/Loading';
+
+// Interface for page data from Neon DB
+interface Page {
+  id: number;
+  headline: string;
+  subtitle: string;
+}
 
 const Home: React.FC<{
     posisi: number; 
@@ -13,6 +20,79 @@ const Home: React.FC<{
   }> = ({posisi, setPosisi}) => {
   const { profile, about, contact, navigation } = siteConfig;
   let [onLoading, setLoading] = useState(true);
+  
+  // State for Neon DB data
+  const [dbPages, setDbPages] = useState<Page[]>([]);
+  const [dbLoading, setDbLoading] = useState(true);
+  const [dbError, setDbError] = useState<string | null>(null);
+
+  // Fetch pages from Neon DB
+  useEffect(() => {
+    const fetchPages = async () => {
+      const API_URL = 'http://localhost:3000';
+      console.log('[Home] Starting fetch from Neon DB...');
+      console.log('[Home] API URL:', API_URL + '/api/pages');
+      
+      try {
+        setDbLoading(true);
+        console.log('[Home] Sending request to server...');
+        
+        const res = await fetch(API_URL + '/api/pages', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include'
+        });
+        
+        console.log('[Home] Response status:', res.status);
+        console.log('[Home] Response ok:', res.ok);
+        
+        if (res.ok) {
+          const data = await res.json();
+          console.log('[Home] Response data:', data);
+          
+          if (data.success && data.pages) {
+            setDbPages(data.pages);
+            setDbError(null);
+            console.log('[Home] Successfully loaded', data.pages.length, 'pages');
+          } else {
+            setDbError('Failed to fetch pages - API returned error');
+            console.error('[Home] API error:', data);
+          }
+        } else {
+          setDbError(`Server error: HTTP ${res.status}`);
+          console.error('[Home] HTTP Error:', res.status, res.statusText);
+        }
+      } catch (err) {
+        console.error('[Home] Fetch Error Details:', err);
+        console.error('[Home] Error name:', err?.name);
+        console.error('[Home] Error message:', err?.message);
+        
+        // Check for common issues
+        if (err instanceof TypeError && err.message === 'Failed to fetch') {
+          setDbError('Connection failed - Server may not be running on port 3000');
+          console.error('[Home] Possible causes:');
+          console.error('[Home] 1. Server is not running (start with: node index.js or npm run dev)');
+          console.error('[Home] 2. CORS policy blocking the request');
+          console.error('[Home] 3. Network/firewall issue');
+          console.error('[Home] 4. Wrong API URL');
+        } else {
+          setDbError('Connection error: ' + (err?.message || 'Unknown error'));
+        }
+      } finally {
+        setDbLoading(false);
+        console.log('[Home] Fetch complete');
+      }
+    };
+
+    // Small delay to ensure server is ready
+    const timeoutId = setTimeout(() => {
+      fetchPages();
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
   //Masih belum berfungsi karena loading hanya ditrigger oleh satu gambar yaitu bannerimage
   function loadingImage() {
     const imageload = Array.from(
@@ -139,6 +219,43 @@ const Home: React.FC<{
               <p className="mb-4">{about.details}</p>
               <p>{about.currentWork}</p>
             </div>
+            
+            {/* Database Pages Section */}
+            <section className="mt-16">
+              <h2 className="font-black mb-8">Database Pages</h2>
+              {dbLoading ? (
+                <div className="flex items-center gap-2">
+                  <Loader2 className="animate-spin" size={20} />
+                  <span>Loading pages from database...</span>
+                </div>
+              ) : dbError ? (
+                <div className="text-red-500 p-4 border-2 border-red-500">
+                  <p className="font-bold">Error:</p>
+                  <p>{dbError}</p>
+                  <p className="text-sm mt-2">Make sure your server is running on port 3000</p>
+                </div>
+              ) : dbPages.length > 0 ? (
+                <div className="border-2 p-6">
+                  <h3 className="font-bold mb-4">Pages from Neon DB:</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {dbPages.map((page) => (
+                      <Link 
+                        key={page.id} 
+                        to={`/mindscape/${page.id}`}
+                        className="block p-4 border-2 hover:bg-gray-100 transition-colors"
+                      >
+                        <h4 className="font-bold">{page.headline}</h4>
+                        <p className="text-sm text-gray-600">{page.subtitle}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="border-2 p-6">
+                  <p>No pages found in database. Create pages to see them here.</p>
+                </div>
+              )}
+            </section>
             
             {/* Contact Info */}
             <div className="flex gap-4">

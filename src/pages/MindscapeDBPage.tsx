@@ -26,34 +26,65 @@ const MindscapeDBPage: React.FC = () => {
 
   useEffect(() => {
     const fetchPage = async () => {
+      console.log('[MindscapeDBPage] Fetching page ID:', id);
+      console.log('[MindscapeDBPage] API URL: http://localhost:3000/api/pages/' + (parseInt(id || '1')));
+      
       try {
         setLoading(true);
         const pageId = parseInt(id || '1');
         
         const res = await fetch(`http://localhost:3000/api/pages/${pageId}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
           credentials: 'include'
         });
         
+        console.log('[MindscapeDBPage] Response status:', res.status);
+        console.log('[MindscapeDBPage] Response ok:', res.ok);
+        
         if (res.ok) {
           const data = await res.json();
+          console.log('[MindscapeDBPage] Response data:', data);
+          
           if (data.success && data.page) {
             setPage(data.page);
+            setError(null);
           } else {
-            setError('Page not found');
+            setError('Page not found in database');
+            console.error('[MindscapeDBPage] Page not found or empty response');
           }
         } else {
-          setError('Failed to fetch page');
+          setError('Server error: HTTP ' + res.status);
+          console.error('[MindscapeDBPage] HTTP Error:', res.status, res.statusText);
         }
       } catch (err) {
-        console.error('Failed to fetch page:', err);
-        setError('Connection error');
+        console.error('[MindscapeDBPage] Fetch Error:', err);
+        console.error('[MindscapeDBPage] Error name:', err?.name);
+        console.error('[MindscapeDBPage] Error message:', err?.message);
+        
+        if (err instanceof TypeError && err.message === 'Failed to fetch') {
+          setError('Connection failed - Server not running on port 3000');
+          console.error('[MindscapeDBPage] Possible causes:');
+          console.error('[MindscapeDBPage] 1. Server not running (run: node index.js)');
+          console.error('[MindscapeDBPage] 2. Check if backend server is started');
+        } else {
+          setError('Connection error: ' + (err?.message || 'Unknown error'));
+        }
       } finally {
         setLoading(false);
+        console.log('[MindscapeDBPage] Fetch complete');
       }
     };
 
     if (id) {
-      fetchPage();
+      // Small delay to ensure server is ready
+      const timeoutId = setTimeout(() => {
+        fetchPage();
+      }, 500);
+      
+      return () => clearTimeout(timeoutId);
     }
   }, [id]);
 
