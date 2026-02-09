@@ -38,13 +38,12 @@ const Lobby: React.FC = () => {
       {/* Footer with Links */}
       <footer className="py-16 text-center border-t border-gray-800">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-black mb-8">Back To Home</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link 
               to="/"
               className="inline-flex items-center gap-2 bg-gray-100 text-black px-6 py-3 font-bold hover:bg-gray-200 transition-colors"
             >
-              XXX
+              HOME PAGE
             </Link>
           </div>
         </div>

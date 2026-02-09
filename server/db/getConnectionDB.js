@@ -1,13 +1,5 @@
-import sqlite3 from 'sqlite3'
-import { open } from 'sqlite'
+import { neon } from "@neondatabase/serverless";
 
-export async function getConnectionDB() {
-    const db = await open({
-        filename: './database.db',
-        driver: sqlite3.Database
-    }) 
-
-    await db.exec('PRAGMA foreign_keys = ON;')
-
-    return db
+export function getConnectionDB() {
+    return neon(process.env.DATABASE_URL);
 }

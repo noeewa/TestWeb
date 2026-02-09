@@ -64,7 +64,7 @@ apiRouter.get('/pages/:id', async (req, res) => {
 apiRouter.post('/create/:layer', async (req, res) => {
     const { layer } = req.params
     let result = null
-    let db = await getConnectionDB()
+    // getConnectionDB is now synchronous
     if (layer.toLocaleLowerCase() === 'pages') {
         const { headline, subtitle } = req.body
         result = await insertPages(headline, subtitle)

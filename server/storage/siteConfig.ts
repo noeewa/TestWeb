@@ -14,7 +14,7 @@ export const siteConfig = {
     location: "Indonesia, East Java",
     email: "fawgrahpics@gmail.com",
     profileImage: "patung.jpg", // placeholder for now
-    bannerImage: "bg.jpg", // placeholder banner
+    bannerImage: "BG.jpg", // placeholder banner
   },
 
   // Scrolling Quotes

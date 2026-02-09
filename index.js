@@ -2,10 +2,13 @@ import express from "express"
 import cors from "cors"
 import { apiRouter } from "./server/apiRouter/apiRouter.js"
 import { createGlobal, createContentPage, createParagrafPage, createAcc } from "./server/db/createTable.js"
+import { put } from "@vercel/blob";
 
 const PORT = process.env.PORT || 3000
 
 const app = express()
+
+// !!!!USE VALIDATOR AND USE NEON DB
 
 
 // Middleware untuk parsing JSON
